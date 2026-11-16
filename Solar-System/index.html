@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#070b18">
+  <meta name="description" content="可調整速度、暫停並探索八大行星的互動式太陽系模擬器。">
+  <title>太陽系・星際漫遊</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <div class="starfield" aria-hidden="true"></div>
+  <main class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="#home" aria-label="太陽系星際漫遊首頁">
+        <span class="brand-mark" aria-hidden="true">✦</span>
+        <span>星際漫遊<span class="brand-caption">SOLAR SYSTEM EXPLORER</span></span>
+      </a>
+      <div class="top-note"><span class="live-dot"></span> 太陽系觀測站 <span class="note-divider">/</span> 即時模擬</div>
+    </header>
+
+    <section class="intro" id="home" aria-labelledby="page-title">
+      <p class="eyebrow"><span></span>我們的宇宙鄰居</p>
+      <h1 id="page-title">太陽系<span class="title-dot">.</span></h1>
+      <p class="intro-copy">沿著軌道，認識環繞太陽的八大行星。</p>
+    </section>
+
+    <section class="simulation" aria-label="互動式太陽系軌道模擬">
+      <div class="simulation-topline"><span class="section-label">軌道視圖 <span>·</span> 內側至外側</span><span class="orbit-note"><i></i> 行星距離與實際比例不同</span></div>
+      <div class="solar-system" id="solarSystem" role="group" aria-label="太陽與八大行星，點選行星查看介紹">
+        <div class="sun-glow" aria-hidden="true"></div>
+        <button class="sun" type="button" aria-label="太陽：太陽系的中心恆星"><span class="sun-label">太陽</span></button>
+        <div class="orbit orbit-1" data-orbit="1"><button class="planet mercury" data-planet="mercury" type="button" aria-label="水星"></button></div>
+        <div class="orbit orbit-2" data-orbit="2"><button class="planet venus" data-planet="venus" type="button" aria-label="金星"></button></div>
+        <div class="orbit orbit-3" data-orbit="3"><button class="planet earth" data-planet="earth" type="button" aria-label="地球"></button></div>
+        <div class="orbit orbit-4" data-orbit="4"><button class="planet mars" data-planet="mars" type="button" aria-label="火星"></button></div>
+        <div class="orbit orbit-5" data-orbit="5"><button class="planet jupiter" data-planet="jupiter" type="button" aria-label="木星"></button></div>
+        <div class="orbit orbit-6" data-orbit="6"><button class="planet saturn" data-planet="saturn" type="button" aria-label="土星"><span></span></button></div>
+        <div class="orbit orbit-7" data-orbit="7"><button class="planet uranus" data-planet="uranus" type="button" aria-label="天王星"></button></div>
+        <div class="orbit orbit-8" data-orbit="8"><button class="planet neptune" data-planet="neptune" type="button" aria-label="海王星"></button></div>
+      </div>
+      <div class="planet-legend" aria-label="行星圖例">
+        <button class="legend-item" data-select="mercury"><i class="legend-dot mercury-dot"></i>水星</button>
+        <button class="legend-item" data-select="venus"><i class="legend-dot venus-dot"></i>金星</button>
+        <button class="legend-item" data-select="earth"><i class="legend-dot earth-dot"></i>地球</button>
+        <button class="legend-item" data-select="mars"><i class="legend-dot mars-dot"></i>火星</button>
+        <button class="legend-item" data-select="jupiter"><i class="legend-dot jupiter-dot"></i>木星</button>
+        <button class="legend-item" data-select="saturn"><i class="legend-dot saturn-dot"></i>土星</button>
+        <button class="legend-item" data-select="uranus"><i class="legend-dot uranus-dot"></i>天王星</button>
+        <button class="legend-item" data-select="neptune"><i class="legend-dot neptune-dot"></i>海王星</button>
+      </div>
+      <div class="controls" aria-label="模擬控制">
+        <button class="control-button" id="playButton" type="button" aria-label="暫停公轉動畫"><span class="play-icon" aria-hidden="true">Ⅱ</span><span id="playLabel">暫停</span></button>
+        <span class="control-divider"></span>
+        <label class="speed-control" for="speedRange"><span>公轉速度</span><span class="speed-value" id="speedValue">1.0×</span><input id="speedRange" type="range" min="0.1" max="5" step="0.1" value="1" aria-label="調整公轉速度"></label>
+        <button class="reset-button" id="resetButton" type="button">重設 <span aria-hidden="true">↺</span></button>
+      </div>
+    </section>
+
+    <section class="info-card" id="planetInfo" aria-live="polite" aria-label="行星介紹">
+      <div class="info-main"><div class="info-symbol" id="infoSymbol" aria-hidden="true">☿</div><div><p class="info-kicker" id="infoKicker">最近的行星 <span>01 / 08</span></p><h2 id="infoName">水星 <span>MERCURY</span></h2><p class="info-description" id="infoDescription">離太陽最近、體積最小的行星。白天酷熱、夜晚嚴寒，表面布滿撞擊坑。</p></div></div>
+      <div class="info-stats"><div><span>與太陽距離</span><strong id="infoDistance">5,790 萬 <small>公里</small></strong></div><div><span>公轉週期</span><strong id="infoPeriod">88 <small>地球日</small></strong></div><div><span>行星類型</span><strong id="infoType">類地行星</strong></div></div>
+    </section>
+    <footer class="footer"><span>以好奇心為導航，探索太陽系。</span><span>圖示為示意，非真實天體比例。</span></footer>
+  </main>
+</body>
+</html>
